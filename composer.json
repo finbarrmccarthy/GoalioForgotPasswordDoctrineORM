@@ -1,5 +1,5 @@
 {
-    "name": "goalio/goalio-forgotpassword-doctrine-orm",
+    "name": "finbarrmccarthy/goalio-forgotpassword-doctrine-orm",
     "description": "Doctrine2 ORM storage adapter for GoalioForgotPassword.",
     "type": "library",
     "keywords": [
@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "goalio/goalio-forgotpassword": "0.*",
+        "finbarrmccarthy/goalio-forgotpassword": "0.*",
         "doctrine/doctrine-orm-module": "0.*"
     },
     "autoload": {
