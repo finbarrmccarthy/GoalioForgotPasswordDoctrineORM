@@ -1,4 +1,4 @@
-GoalioForgotPasswordDoctrineORM
+FinbarrForgotPasswordDoctrineORM
 ===============================
 
-Doctrine2 ORM storage adapter for GoalioForgotPassword. 
+Doctrine2 ORM storage adapter for FinbarrForgotPassword. 

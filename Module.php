@@ -1,6 +1,6 @@
 <?php
 
-namespace GoalioForgotPasswordDoctrineORM;
+namespace FinbarrForgotPasswordDoctrineORM;
 
 use Doctrine\ORM\Mapping\Driver\XmlDriver;
 use ZfcUser\Module as ZfcUser;
@@ -11,12 +11,12 @@ class Module
     {
         $app     = $e->getParam('application');
         $sm      = $app->getServiceManager();
-        $options = $sm->get('goalioforgotpassword_module_options');
+        $options = $sm->get('finbarrforgotpassword_module_options');
 
         // Add the default entity driver only if specified in configuration
         if ($options->getEnableDefaultEntities()) {
             $chain = $sm->get('doctrine.driver.orm_default');
-            $chain->addDriver(new XmlDriver(__DIR__ . '/config/xml/goalioforgotpassworddoctrineorm'), 'GoalioForgotPasswordDoctrineORM\Entity');
+            $chain->addDriver(new XmlDriver(__DIR__ . '/config/xml/finbarrforgotpassworddoctrineorm'), 'FinbarrForgotPasswordDoctrineORM\Entity');
         }
     }
 
@@ -35,18 +35,18 @@ class Module
     {
         return array(
             'aliases' => array(
-                'goalioforgotpassword_doctrine_em' => 'doctrine.entitymanager.orm_default',
+                'finbarrforgotpassword_doctrine_em' => 'doctrine.entitymanager.orm_default',
 
             ),
             'factories' => array(
-                'goalioforgotpassword_module_options' => function ($sm) {
+                'finbarrforgotpassword_module_options' => function ($sm) {
                     $config = $sm->get('Config');
-                    return new Options\ModuleOptions(isset($config['goalioforgotpassword']) ? $config['goalioforgotpassword'] : array());
+                    return new Options\ModuleOptions(isset($config['finbarrforgotpassword']) ? $config['finbarrforgotpassword'] : array());
                 },
-                'goalioforgotpassword_password_mapper' => function ($sm) {
-                    return new \GoalioForgotPasswordDoctrineORM\Mapper\Password(
-                        $sm->get('goalioforgotpassword_doctrine_em'),
-                        $sm->get('goalioforgotpassword_module_options')
+                'finbarrforgotpassword_password_mapper' => function ($sm) {
+                    return new \FinbarrForgotPasswordDoctrineORM\Mapper\Password(
+                        $sm->get('finbarrforgotpassword_doctrine_em'),
+                        $sm->get('finbarrforgotpassword_module_options')
                     );
                 },
             ),
